@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
     <!-- 引入 login css文件 -->
     <link rel="stylesheet" href="./assets/css/login.css">
-    <!-- 引入 jQuery js文件 -->
-    <script src="./assets/lib/jQuery.js"></script>
-    <!-- 引入 login js文件 -->
-    <script src="./assets/js/login.js"></script>
 </head>
 
 <body>
@@ -26,7 +22,7 @@
         <!-- 登录的div -->
         <div class="login-box">
             <!-- 登录的表单 -->
-            <form class="layui-form" action="">
+            <form class="layui-form" id="form_login">
                 <!-- 用户名 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
@@ -52,7 +48,7 @@
         <!-- 注册的div -->
         <div class="reg-box">
             <!-- 注册的表单 -->
-            <form class="layui-form">
+            <form class="layui-form" id="form_reg">
                 <!-- 用户名 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-username"></i>
@@ -68,8 +64,8 @@
                 <!-- 密码确认框 -->
                 <div class="layui-form-item">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="password" name="repassword" required lay-verify="required" placeholder="再次确认密码"
-                        autocomplete="off" class="layui-input" />
+                    <input type="password" name="repassword" required lay-verify="required|pwd|repwd"
+                        placeholder="再次确认密码" autocomplete="off" class="layui-input" />
                 </div>
                 <!-- 注册按钮 -->
                 <div class="layui-form-item">
@@ -82,6 +78,14 @@
             </form>
         </div>
     </div>
+    <!-- 引入 jQuery js文件 -->
+    <script src="./assets/lib/jQuery.js"></script>
+    <!-- 引入 layui js文件 -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 引入 baseAPI js文件 -->
+    <script src="./assets/js/baseAPI.js"></script>
+    <!-- 引入 login js文件 -->
+    <script src="./assets/js/login.js"></script>
 </body>
 
 </html>
