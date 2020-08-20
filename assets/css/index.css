@@ -38,6 +38,10 @@ iframe {
     user-select: none;
 }
 
+.layui-side-scroll {
+    width: 200px;
+}
+
 .layui-side-scroll .userinfo {
     border-bottom: 1px solid #282b33;
 }
@@ -45,6 +49,10 @@ iframe {
 .layui-nav-img {
     width: 40px;
     height: 40px;
+}
+
+.layui-nav-child {
+    text-align: center;
 }
 
 .text-avatar {

@@ -40,17 +40,23 @@
                 </div>
             </div <!-- 第二行的按钮区域 -->
             <div class="row2">
-                <button type="button" class="layui-btn">上传</button>
-                <button type="button" class="layui-btn layui-btn-danger">确定</button>
+                <!-- 添加选择文件功能， accept 属性是接受的文件类型 -->
+                <input type="file" id="file" accept="image/png,image/jpeg" style="display: none;" />
+                <button type="button" class="layui-btn" id="btnChooseImage">上传</button>
+                <button type="button" class="layui-btn layui-btn-danger" id="btnUpload">确定</button>
             </div>
         </div>
     </div>
+    <!-- 引入 layui 的js文件 -->
+    <script src="../assets/lib/layui/layui.all.js"></script>
     <!-- 引入 jQuery 的js文件 -->
     <script src="../assets/lib/jQuery.js"></script>
     <!-- 引入 Cropper 的js文件 -->
     <script src="../assets/lib/cropper/Cropper.js"></script>
     <!-- 引入 jQuery-cropper 的js文件 -->
     <script src="../assets/lib/cropper/jQuery-cropper.js"></script>
+    <!-- 引入 baseAPI 的js文件  -->
+    <script src="../assets/js/baseAPI.js"></script>
     <!-- 引入 自己 的js文件 -->
     <script src="../assets/js/user/user_avatar.js"></script>
 </body>
