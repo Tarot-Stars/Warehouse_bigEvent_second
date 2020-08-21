@@ -8,6 +8,7 @@ $(function () {
     }
     // 获取裁剪区域的 DOM 元素，创建裁剪区域
     $('#image').cropper(options);
+    // 为上传按钮绑定点击事件
     $('#btnChooseImage').on('click', function () {
         $('#file').click();
     });
