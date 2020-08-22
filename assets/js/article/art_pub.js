@@ -81,8 +81,10 @@ $(function () {
                 success: function (res) {
                     if (res.status !== 0) return layer.msg(res.message);
                     layer.msg('发布文章成功！');
-                    // 发布文章成功后，跳转到文章列表页面
-                    location.href = '../../../article/art_list.html';
+                    // 跳转到文章列表页面
+                    setTimeout(function () {
+                        window.parent.document.querySelector('#jump').click();
+                    }, 500)
                 }
             })
         }
