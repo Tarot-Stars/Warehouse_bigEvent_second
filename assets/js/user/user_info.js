@@ -26,7 +26,7 @@ $(function () {
         initUserInfo();
     });
     // 监听表单的提交事件
-    $('.layui-form').on('click', function (e) {
+    $('.layui-form').on('submit', function (e) {
         // 阻止表单的默认提交行为
         e.preventDefault();
         // 发起 Ajax 请求
