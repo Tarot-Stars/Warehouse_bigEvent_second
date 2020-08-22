@@ -33,6 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- 需动态添加内容 -->
                 </tbody>
             </table>
         </div>
@@ -44,14 +45,15 @@
         <td>{{$value.name}}</td>
         <td>{{$value.alias}}</td>
         <td>
-          <button type="button" class="layui-btn layui-btn-xs">编辑</button>
-          <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+          <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{$value.Id}}">编辑</button>
+          <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.Id}}">删除</button>
         </td>
       </tr>
       {{/each}}
     </script>
+    <!-- 新增 -->
     <script type="text/html" id="dialog-add">
-        <form class="layui-form" id="form-add">
+        <form class="layui-form" lay-filter="form-add" id="form-add">
             <div class="layui-form-item">
                 <label class="layui-form-label">分类名称</label>
                 <div class="layui-input-block">
@@ -71,6 +73,34 @@
                 </div>
             </div>
         </form>
+    </script>
+    <!-- 更新 -->
+    <script type="text/html" id="dialog-edit">
+        <form class="layui-form" id="form-edit" lay-filter="form-edit">
+            <!-- 隐藏域，保存 Id 的值 -->
+            <input type="hidden" name="Id">
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" required lay-verify="required" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类别名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="alias" required lay-verify="required" placeholder="请输入分类别名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <!-- 退出 -->
+    <script type="text/html">
+
     </script>
     <!-- 引入 layui 的js文件 -->
     <script src="../assets/lib/layui/layui.all.js"></script>
