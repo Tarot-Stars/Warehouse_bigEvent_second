@@ -1,4 +1,24 @@
 $(function () {
+    // 渲染获取到的文章信息
+    function editForm() {
+        // 获取文章的 id 
+        var id = location.search.split('=')[1];
+        // 发送 ajax 请求
+        $.ajax({
+            method: 'GET',
+            url: '/my/article/' + id,
+            success: function (res) {
+                if (res.status !== 0) return layer.msg(res.message);
+                form.val('form_edit', res.data);
+                //  tincMCE 赋值（获取文章内容）
+                tinyMCE.activeEditor.setContent(res.data.content);
+                if (!res.data.cover_img) return layer.msg('请选择图片');
+                var newImgURL = developmentURL + res.data.cover_img;
+                // 销毁旧的裁剪区域，重新设置图片路径，重新初始化裁剪区域
+                $('#image').cropper('destroy').attr('src', newImgURL).cropper(options);
+            }
+        })
+    }
     var form = layui.form;
     var layer = layui.layer;
     // 定义加载文章分类的方法
@@ -17,6 +37,7 @@ $(function () {
                 $('[name=cate_id]').html(htmlStr);
                 // 一定要记得调用 form.render() 方法
                 form.render();
+                editForm();
             }
         })
     }
@@ -48,6 +69,7 @@ $(function () {
     $('#btnSave').on('click', function () {
         art_state = '草稿';
     })
+    // 发表文章
     $('#form-pub').on('submit', function (e) {
         // 1. 阻止表单的默认提交行为
         e.preventDefault();
@@ -69,18 +91,17 @@ $(function () {
             // 发起 ajax 数据请求
             publishArticle(fd);
         })
-        // 发表文章
         function publishArticle(fd) {
             $.ajax({
                 method: 'POST',
-                url: '/my/article/add',
+                url: '/my/article/edit',
                 data: fd,
                 // 注意：如果向服务器提交的是 FormData 格式的数据，必须添加以下两个配置项
                 contentType: false,
                 processData: false,
                 success: function (res) {
                     if (res.status !== 0) return layer.msg(res.message);
-                    layer.msg('发布文章成功！');
+                    layer.msg('修改文章成功！');
                     // 跳转到文章列表页面
                     setTimeout(function () {
                         window.parent.document.querySelector('#jump').click();

@@ -16,10 +16,12 @@
 <body>
     <!-- 卡片区域 -->
     <div class="layui-card">
-        <div class="layui-card-header">发布文章</div>
+        <div class="layui-card-header">编辑文章</div>
         <div class="layui-card-body">
-            <!-- 发布文章的表单 -->
-            <form class="layui-form" id="form-pub">
+            <!-- 编辑文章的表单 -->
+            <form class="layui-form" lay-filter="form_edit" id="form-pub">
+                <!-- 隐藏域 -->
+                <input type="hidden" name="Id" id="">
                 <!-- 第一行 -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章标题</label>
