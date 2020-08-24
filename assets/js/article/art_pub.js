@@ -48,6 +48,7 @@ $(function () {
     $('#btnSave').on('click', function () {
         art_state = '草稿';
     })
+    // 发表文章
     $('#form-pub').on('submit', function (e) {
         // 1. 阻止表单的默认提交行为
         e.preventDefault();
@@ -69,7 +70,6 @@ $(function () {
             // 发起 ajax 数据请求
             publishArticle(fd);
         })
-        // 发表文章
         function publishArticle(fd) {
             $.ajax({
                 method: 'POST',
